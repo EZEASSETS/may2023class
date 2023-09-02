@@ -31,4 +31,10 @@ public class SearchProductTest extends BaseTest {
     }
 
 
+    @Test
+    public void addToCart3(){
+        System.out.println("add to cart");
+
+    }
+
 }
