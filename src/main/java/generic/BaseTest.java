@@ -19,7 +19,9 @@ public class BaseTest {
     public void createDriver() throws IOException {
         loadConfig();
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+options.setHeadless(true);
+        driver = new ChromeDriver(options);
         System.out.println(" Before Method - Create Driver");
     }
 
