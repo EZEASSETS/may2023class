@@ -47,4 +47,13 @@ jobs:
         name: allure-report
         path: allure-results
         retention-days: 5
+    - name: Email Report
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: email report
+        path: test-output/emailable-report
+        retention-days: 5
+
+        
 
