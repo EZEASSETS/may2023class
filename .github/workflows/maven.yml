@@ -54,6 +54,13 @@ jobs:
         name: email report
         path: test-output/emailable-report
         retention-days: 5
+    - name: Full
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: full file
+        path: ./
+        retention-days: 5
 
         
 
