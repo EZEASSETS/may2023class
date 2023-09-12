@@ -38,12 +38,13 @@ jobs:
     - uses: mad9000/actions-find-and-replace-string@3
       with:
           source: ${{ github.event.inputs.password }} # this translates to ref/heads/main on the main branch, but can be any arbitrary string 
+          id: pwd
           find: '$'        # we want to remove ref/heads/ from source 
           replace: '\$' 
     - uses: browser-actions/setup-chrome@latest
     - run: chrome --version
     - name: Build with Maven
-      run: mvn -B clean test -Dconfig=in -Dpassword=${{github.event.inputs.password}}
+      run: mvn -B clean test -Dconfig=in -Dpassword=${{steps.pwd.outputs.value}}
 
     - name: Report
       if: always()
