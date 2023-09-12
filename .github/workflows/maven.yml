@@ -36,9 +36,9 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - uses: mad9000/actions-find-and-replace-string@3
+      id: pwd
       with:
           source: ${{ github.event.inputs.password }} # this translates to ref/heads/main on the main branch, but can be any arbitrary string 
-          id: pwd
           find: '$'        # we want to remove ref/heads/ from source 
           replace: '\$' 
     - uses: browser-actions/setup-chrome@latest
